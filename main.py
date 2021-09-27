@@ -1,5 +1,5 @@
 import cv2 as cv
-from GrabCut import grabcut
+from grabCut import grabcut
 
 
 def mainGrabCut():
