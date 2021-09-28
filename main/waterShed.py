@@ -1,14 +1,13 @@
 import numpy as np
 import cv2 as cv
 
+
 def watershed(img):
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     _, thresh = cv.threshold(gray, 0, 255, cv.THRESH_BINARY_INV + cv.THRESH_OTSU)
 
     cv.imshow("img", thresh)
 
-    cv.waitKey()
-    # noise removal
     kernel = np.ones((3, 3), np.uint8)
     opening = cv.morphologyEx(thresh, cv.MORPH_OPEN, kernel, iterations=2)
     closing = cv.morphologyEx(opening, cv.MORPH_CLOSE, kernel, iterations=2)
@@ -18,7 +17,6 @@ def watershed(img):
 
     cv.imshow("sure_bg", sure_bg)
 
-    cv.waitKey()
     # Finding sure foreground area
     sure_fg = cv.erode(closing, kernel, iterations=3)
 
@@ -29,7 +27,6 @@ def watershed(img):
 
     cv.imshow("sure_fg", sure_fg)
 
-    cv.waitKey()
     # Finding unknown region
     sure_fg = np.uint8(sure_fg)
     unknown = cv.subtract(sure_bg, sure_fg)
