@@ -1,8 +1,8 @@
 import cv2
 import numpy as np
 
-webcam_window = 'Webcam-Image-Window'
-segmented_image_window = 'Segmented-Image-Window'
+webcam_window = 'Webcam'
+segmented_image_window = 'Segmented Image'
 
 
 def grabCutFinal(img):
@@ -34,7 +34,6 @@ def main():
 
     while True:
         _, frame = cap.read()
-        # frame = cv2.imread('./1.jpeg')
 
         cv2.imshow(webcam_window, frame)
 

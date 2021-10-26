@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 from PIL import ImageColor
 
-base_colours = ['#37AB65', '#3DF735', '#AD6D70', '#EC2504', '#8C0B90', '#C0E4FF', '#27B502', '#7C60A8', '#CF95D7',
-                '#37AB65']
+base_colours = ['#EC2504', '#37AB65', '#00FF00', '#EC2504', '#8C0B90', '#C0E4FF', '#27B502', '#7C60A8', '#CF95D7',
+                '#FF6666']
 frame_window = 'Frame-Window'
 seeds_map_window = 'Seeds-Map-Window'
 watershed_result_window = 'Watershed-Result-Window'
@@ -36,7 +36,7 @@ def main():
     selected_key = 49  # 1 en ASCII
     points = []
     # seeds = np.zeros((1198, 1198), np.uint8)
-    seeds = np.zeros((480, 640), np.uint8)
+    seeds = np.zeros((720, 1280), np.uint8)
     cv2.namedWindow(frame_window)
     cv2.namedWindow(seeds_map_window)
 
@@ -61,7 +61,7 @@ def main():
                         color, 3)
 
         cv2.imshow(frame_window, frame_copy)
-        map = cv2.applyColorMap(seeds_copy, cv2.COLORMAP_JET)
+        map = cv2.applyColorMap(seeds_copy, cv2.COLORMAP_COOL)
         cv2.imshow(seeds_map_window, map)
 
         key = cv2.waitKey(100) & 0xFF
@@ -69,7 +69,7 @@ def main():
             waterShedFinal(frame.copy())
             points = []
             # seeds = np.zeros((1198, 1198), np.uint8)
-            seeds = np.zeros((480, 640), np.uint8)
+            seeds = np.zeros((720, 1280), np.uint8)
 
         if ord('1') <= key <= ord('9'):
             selected_key = key
