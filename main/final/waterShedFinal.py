@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from PIL import ImageColor
 
-base_colours = ['#EC2504', '#37AB65', '#00FF00', '#EC2504', '#8C0B90', '#C0E4FF', '#27B502', '#7C60A8', '#CF95D7',
+base_colours = ['#0000FF', '#FFFF00', '#00FF00', '#00FFFF', '#8C0B90', '#C0E4FF', '#27B502', '#7C60A8', '#CF95D7',
                 '#FF6666']
 frame_window = 'Frame-Window'
 seeds_map_window = 'Seeds-Map-Window'
